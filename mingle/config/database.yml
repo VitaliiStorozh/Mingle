@@ -9,5 +9,6 @@
   puts "load database.yml from #{f}"
   template = ERB.new(File.read(f))
   user = ENV["POSTGRES_USER"]
+  password = ENV["POSTGRES_PASSWORD"]
   template.result(binding)
 %>
