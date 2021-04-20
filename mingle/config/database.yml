@@ -10,5 +10,6 @@
   template = ERB.new(File.read(f))
   user = ENV["POSTGRES_USER"]
   password = ENV["POSTGRES_PASSWORD"]
+  host = ENV["POSTGRES_HOST"]
   template.result(binding)
 %>
