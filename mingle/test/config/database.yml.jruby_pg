@@ -3,26 +3,26 @@ production:
   adapter: jdbc
   driver: org.postgresql.Driver
   password: test
-  username: user
+  username: <%= user %>
   pool: 12
 development:
   url: jdbc:postgresql://postgres-server:5432/mingle_development
   adapter: jdbc
   driver: org.postgresql.Driver
   password: test
-  username: user
+  username: <%= user %>
   pool: 12
 test:
   url: jdbc:postgresql://postgres-server:5432/mingle_development
   adapter: jdbc
   driver: org.postgresql.Driver
   password: test
-  username: user
+  username: <%= user %>
   pool: 12
 test_upgrade_export:
   url: jdbc:postgresql://postgres-server:5432/mingle_development
   adapter: jdbc
   driver: org.postgresql.Driver
   password: test
-  username: user
+  username: <%= user %>
   pool: 12
