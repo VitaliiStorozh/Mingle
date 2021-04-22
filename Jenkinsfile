@@ -15,7 +15,7 @@ pipeline {
                 echo 'build'
                 dir('mingle'){                    
                     sh 'script/build'
-                    sh 'ruby test/unit/color_test.rb'
+                    sh 'ruby -v'
                 }
             }
         }
