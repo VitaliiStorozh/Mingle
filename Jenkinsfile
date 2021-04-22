@@ -15,6 +15,7 @@ pipeline {
                 echo 'build'
                 sh 'ls'
                 dir('mingle')
+                sh 'ls'
                 sh 'script/build'
             }
         }
