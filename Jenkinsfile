@@ -14,9 +14,10 @@ pipeline {
             steps {
                 echo 'build'
                 sh 'ls'
-                dir('mingle')
-                sh 'ls'
-                sh 'script/build'
+                dir('your-sub-directory'){
+                    sh "pwd"
+                    sh 'script/build'
+                }
             }
         }
 
