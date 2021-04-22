@@ -13,6 +13,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'build'
+                sh 'ls'
                 dir('mingle')
                 sh 'script/build'
             }
