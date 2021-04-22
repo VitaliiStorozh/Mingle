@@ -28,7 +28,7 @@ pipeline {
                 dir('mingle'){
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
-                echo 'tests SUCESESS'
+                echo 'tests SUCESES'
             }
         }*/
 
