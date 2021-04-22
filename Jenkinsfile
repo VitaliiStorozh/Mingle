@@ -15,7 +15,7 @@ pipeline {
                 echo 'build'
                 dir('mingle'){                    
                     sh 'script/build'
-                    sh 'ruby -r test/functional/tabs_controller_test.rb test/unit/color_test.rb'
+                    sh 'ruby test/unit/color_test.rb'
                 }
             }
         }
