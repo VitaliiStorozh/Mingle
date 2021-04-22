@@ -10,44 +10,38 @@ pipeline {
             }
         }
 
-	stage('jruby unit report generation') {
-		steps {
-			script {
-				try {
-                    sh 'cd mingle'
-                    sh 'dropdb mingle_test; createdb mingle_test'
-					sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
-				} catch(err) { 
-					echo "I have caught an error!"
-					echo err.getMessage()
-				}
-			}
-
-			sh 'sbt coverageReport'
-		}
-	}
-
-        stage('sonarqube analysis') {
-		steps {
-			withSonarQubeEnv('SonarQube') {
-                        	sh './sonar-scanner-4.6.0.2311-linux/bin/sonar-scanner'
-                	}
-		}
-        }
-
-
-	stage('quality gate') {
-		steps {
-			waitForQualityGate abortPipeline: true
-		}
-	}
-
         stage('build') {
-            steps {
-                echo 'build'
-                sh 'sbt package'
-            }
+		    steps {
+			    script {
+                    echo 'build'
+                    sh 'cd mingle'
+                    sh 'script/build'
+			    }
+		    }
         }
+
+	    stage('jruby unit report generation') {
+		    steps {
+			    script {
+				    try {
+                        sh 'cd mingle'
+                        sh 'dropdb mingle_test; createdb mingle_test'
+					    sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
+				    } catch(err) { 
+					    echo "I have caught an error!"
+					    echo err.getMessage()
+				    }
+			    }
+
+			    sh 'sbt coverageReport'
+		    }
+	    }
+
+	    stage('quality gate') {
+		    steps {
+			    waitForQualityGate abortPipeline: true
+		    }
+	    }
 
         stage('Deploying') {
             steps {
