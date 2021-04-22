@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'build'
                 dir('mingle'){                    
-                    sh 'script/build'
+                    //sh 'script/build'
                     sh 'rake --version'
                 }
             }
