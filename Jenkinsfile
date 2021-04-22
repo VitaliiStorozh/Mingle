@@ -14,7 +14,7 @@ pipeline {
 		    steps {
 			    script {
                     echo 'build'
-                    sh 'cd mingle'
+                    dir('mingle')
                     sh 'script/build'
 			    }
 		    }
