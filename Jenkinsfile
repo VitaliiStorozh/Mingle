@@ -10,14 +10,13 @@ pipeline {
             }
         }
 
-        stage('build') {
+        stage('build & jruby unit tests') {
             steps {
                 echo 'build'
-                sh 'rake --version'
-                /*dir('mingle'){                    
+                dir('mingle'){                    
                     sh 'script/build'
-                    sh 'rake --version'
-                }*/
+                }
+                echo 'Tests SUCCESS'
             }
         }
 
@@ -28,7 +27,7 @@ pipeline {
                 dir('mingle'){
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
-                echo 'tests SUCE'
+                echo 'Tests SUCCESS'
             }
         }*/
 
