@@ -13,10 +13,11 @@ pipeline {
         stage('build') {
             steps {
                 echo 'build'
-                dir('mingle'){                    
-                    //sh 'script/build'
+                sh 'rake --version'
+                /*dir('mingle'){                    
+                    sh 'script/build'
                     sh 'rake --version'
-                }
+                }*/
             }
         }
 
