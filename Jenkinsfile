@@ -13,33 +13,19 @@ pipeline {
         stage('build') {
             steps {
                 echo 'build'
-                dir('mingle'){
-                    sh "pwd"
+                dir('mingle'){                    
                     sh 'script/build'
                 }
             }
         }
 
-	    stage('jruby unit report generation') {
+	    stage('jruby unit tests') {
 		    steps {
-			    script {
-				    try {
-                        sh 'cd mingle'
-                        sh 'dropdb mingle_test; createdb mingle_test'
-					    sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
-				    } catch(err) { 
-					    echo "I have caught an error!"
-					    echo err.getMessage()
-				    }
-			    }
-
-			    sh 'sbt coverageReport'
-		    }
-	    }
-
-	    stage('quality gate') {
-		    steps {
-			    waitForQualityGate abortPipeline: true
+                echo 'tests'
+                sh 'dropdb mingle_test; createdb mingle_test'
+                dir('mingle'){
+                    sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
+                }
 		    }
 	    }
 
