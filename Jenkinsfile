@@ -40,7 +40,7 @@ pipeline {
                             verbose: true,
                             transfers: [
                                 sshTransfer(execCommand: ''' cd /home/vitalii/docker_projects/
-				                    docker-compose up -d)]
+				                    docker-compose up -d''')]
                                 )
                         ]
                     )
