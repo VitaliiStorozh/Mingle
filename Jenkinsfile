@@ -14,7 +14,7 @@ pipeline {
 		steps {
 			script {
 				try {
-                    sh 'cd mingle/mingle'
+                    sh 'cd mingle'
                     sh 'dropdb mingle_test; createdb mingle_test'
 					sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
 				} catch(err) { 
