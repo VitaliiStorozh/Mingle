@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
-                dir("${env.WORKSPACE}/Mingle/mingle") {
+                dir("${env.WORKSPACE}/mingle") {
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
                 echo 'Tests SUCCESS'
