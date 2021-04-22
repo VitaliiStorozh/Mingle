@@ -20,7 +20,7 @@ pipeline {
         }
 
 	    stage('jruby unit tests') {
-		    steps {
+            steps {
                 echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
                 dir('mingle'){
