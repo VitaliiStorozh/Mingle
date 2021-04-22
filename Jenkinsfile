@@ -20,16 +20,16 @@ pipeline {
             }
         }
 
-	    /*stage('jruby unit tests') {
+	    stage('jruby unit tests') {
             steps {
                 echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
-                dir('mingle'){
+                dir("${env.WORKSPACE}/Mingle/mingle") {
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
                 echo 'Tests SUCCESS'
             }
-        }*/
+        }
 
         stage('Deploying') {
             steps {
