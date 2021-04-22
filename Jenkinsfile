@@ -13,8 +13,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'build'
-                sh 'ls'
-                dir('your-sub-directory'){
+                dir('mingle'){
                     sh "pwd"
                     sh 'script/build'
                 }
