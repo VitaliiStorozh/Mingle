@@ -15,7 +15,7 @@ pipeline {
                 echo 'build'
                 dir('mingle'){                    
                     sh 'script/build'
-                    sh 'ruby -v'
+                    sh 'rake --version'
                 }
             }
         }
