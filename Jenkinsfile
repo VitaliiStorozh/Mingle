@@ -11,13 +11,13 @@ pipeline {
         }
 
         stage('build') {
-		    steps {
-			    script {
-                    echo 'build'
-                    dir('mingle')
-                    sh 'script/build'
-			    }
-		    }
+		        steps {
+			         script {
+                  echo 'build'
+                  dir('mingle')
+                  sh 'script/build'
+			         }
+		        }
         }
 
 	    stage('jruby unit report generation') {
