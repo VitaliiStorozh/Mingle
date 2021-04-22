@@ -15,20 +15,22 @@ pipeline {
                 echo 'build'
                 dir('mingle'){                    
                     sh 'script/build'
+                    sh 'dropdb mingle_test; createdb mingle_test'
+                    sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
             }
         }
 
-	    stage('jruby unit tests') {
+	    /*stage('jruby unit tests') {
             steps {
                 echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
-                /*dir('mingle'){
+                dir('mingle'){
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
-                }*/
+                }
                 echo 'tests failed'
             }
-        }
+        }*/
 
         stage('Deploying') {
             steps {
