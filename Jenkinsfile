@@ -14,11 +14,12 @@ pipeline {
             steps {
                 echo 'build'
                 dir('mingle'){                    
-                    //sh 'script/build'
+                    sh 'script/build'
                     //sh 'java -version'
                     //sh 'ruby -v'
                     //sh 'whereis rake'
                     //sh 'bundle show rake'
+                    sh 'ENV PATH /root/.rbenv/bin:$PATH'
                     sh 'dropdb mingle_test; createdb mingle_test'
                     //sh 'source /root/.bash_profile'
                     //sh 'rake --version'
