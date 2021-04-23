@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        stage('build & jruby unit tests') {
+        /*stage('build & jruby unit tests') {
             steps {
                 echo 'build'
                 dir('mingle'){                    
@@ -27,7 +27,7 @@ pipeline {
                 }
                 echo 'Tests SUCCESS'
             }
-        }
+        }*/
 
 	    stage('jruby unit tests') {
             steps {
@@ -39,7 +39,10 @@ pipeline {
                     //sh 'rbenv global 3.0.1'
                     //sh 'gem install rake'
                     sh '''#!/bin/bash
-                            RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace
+                        echo "Who I'm $SHELL"
+                        RAILS_ENV=test
+                        FAST_PREPARE=true
+                        rake db:migrate test:units --trace
                     '''
                 }
                 echo 'Tests SUCCESS'
