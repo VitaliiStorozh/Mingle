@@ -20,7 +20,7 @@ pipeline {
                 sh 'RAILS_ENV=test'
                 sh 'FAST_PREPARE=true'
                 sh 'source ~/.bash_profile'
-                sh 'bundle exec rake db:migrate test:units'
+                sh 'rake db:migrate test:units'
                 echo 'Tests SUCCESS'
             }
         }
