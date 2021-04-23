@@ -26,7 +26,7 @@ pipeline {
 
 	    /*stage('jruby unit tests') {
             steps {
-                echo 'tests'
+                echo 'tes1ts'
                 sh 'dropdb mingle_test; createdb mingle_test'
                 dir("${env.WORKSPACE}/mingle") {
                     sh 'source ~/.bash_profile'
