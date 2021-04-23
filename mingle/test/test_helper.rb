@@ -14,7 +14,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.txt>.
 
 
-java.util.logging.LogManager.getLogManager().reset();
+#java.util.logging.LogManager.getLogManager().reset();
 
 ENV["RAILS_ENV"] = "test"
 if defined? Rails
