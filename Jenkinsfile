@@ -16,6 +16,10 @@ pipeline {
                 dir('mingle'){                    
                     sh 'script/build'
                 }
+                sh 'dropdb mingle_test; createdb mingle_test'
+                sh 'RAILS_ENV=test'
+                sh 'FAST_PREPARE=true'
+                sh 'rake db:migrate test:units'
                 echo 'Tests SUCCESS'
             }
         }
