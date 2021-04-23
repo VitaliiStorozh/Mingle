@@ -18,7 +18,7 @@ pipeline {
                     sh 'java -version'
                     sh 'ruby -v'
                     sh 'source /root/.bashrc'
-                    sh 'ruby test/unit/a_b_testing_test.rb'
+                    sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
                 echo 'Tests SUCCESS'
             }
