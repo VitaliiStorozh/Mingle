@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-	    stage('jruby unit tests') {
+	    /*stage('jruby unit tests') {
             steps {
                 echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
@@ -32,7 +32,7 @@ pipeline {
                 }
                 echo 'Tests SUCCESS'
             }
-        }
+        }*/
 
         stage('Deploying') {
             steps {
@@ -44,6 +44,9 @@ pipeline {
                             verbose: true,
                             transfers: [
                                 sshTransfer(execCommand: ''' cd /home/vitalii/docker_projects/
+                                    docker-compose stop
+                                    docker rm -f $(docker ps -aq)
+                                    docker rmi -f $(docker images -q)
 				                    docker-compose up -d''')]
                                 )
                         ]
