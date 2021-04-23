@@ -38,12 +38,7 @@ pipeline {
                 dir('mingle') {
                     //sh 'rbenv global 3.0.1'
                     //sh 'gem install rake'
-                    sh '''#!/bin/bash
-                        echo "Who I'm $SHELL"
-                        RAILS_ENV=test
-                        FAST_PREPARE=true
-                        rake db:migrate test:units --trace
-                    '''
+                    sh '123.sh'
                 }
                 echo 'Tests SUCCESS'
             }
