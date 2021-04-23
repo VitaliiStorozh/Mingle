@@ -38,7 +38,7 @@ pipeline {
                 dir('mingle') {
                     //sh 'rbenv global 3.0.1'
                     //sh 'gem install rake'
-                    sh '123.sh'
+                    sh './123.sh'
                 }
                 echo 'Tests SUCCESS'
             }
