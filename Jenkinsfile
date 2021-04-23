@@ -34,9 +34,9 @@ pipeline {
                 echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
                 sh 'pwd'
+                sh 'whereis rake'
                 sh './123.sh'
                 //sh 'export PATH=$PATH:$HOME/bin:/var/lib/gems/1.8/bin'
-                sh 'whereis rake'
                 dir('mingle') {
                     //sh 'rbenv global 3.0.1'
                     //sh 'gem install rake'
