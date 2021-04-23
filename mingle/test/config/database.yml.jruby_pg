@@ -16,13 +16,13 @@ test:
   url: jdbc:postgresql://localhost:5432/mingle_test
   adapter: jdbc
   driver: org.postgresql.Driver
-  password: ''
+  password: 1
   username: vitalii
   pool: 12
 test_upgrade_export:
   url: jdbc:postgresql://localhost:5432/test_upgrade_export
   adapter: jdbc
   driver: org.postgresql.Driver
-  password: ''
+  password: 1
   username: vitalii
   pool: 12
