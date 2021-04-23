@@ -25,6 +25,7 @@ pipeline {
                 echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
                 dir("${env.WORKSPACE}/mingle") {
+                    sh 'gem install rake'
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
                 echo 'Tests SUCCESS'
