@@ -19,6 +19,7 @@ pipeline {
                     //sh 'ruby -v'
                     //sh 'whereis rake'
                     //sh 'bundle show rake'
+                    sh 'dropdb mingle_test; createdb mingle_test'
                     //sh 'source /root/.bash_profile'
                     //sh 'rake --version'
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
