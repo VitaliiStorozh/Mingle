@@ -19,29 +19,29 @@ pipeline {
                     //sh 'ruby -v'
                     //sh 'whereis rake'
                     //sh 'bundle show rake'
-                    sh 'ENV PATH /root/.rbenv/bin:$PATH'
-                    sh 'dropdb mingle_test; createdb mingle_test'
+                    //sh 'ENV PATH /root/.rbenv/bin:$PATH'
+                    //sh 'dropdb mingle_test; createdb mingle_test'
                     //sh 'source /root/.bash_profile'
                     //sh 'rake --version'
-                    sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
+                    //sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
                 echo 'Tests SUCCESS'
             }
         }
 
-	    /*stage('jruby unit tests') {
+	    stage('jruby unit tests') {
             steps {
                 echo 'tes1ts'
                 sh 'dropdb mingle_test; createdb mingle_test'
-                dir("${env.WORKSPACE}/mingle") {
-                    sh 'source ~/.bash_profile'
-                    sh 'rbenv global 3.0.1'
-                    sh 'gem install rake'
+                sh 'PATH="$HOME/.rbenv/bin:$PATH"'
+                dir('mingle') {
+                    //sh 'rbenv global 3.0.1'
+                    //sh 'gem install rake'
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
                 echo 'Tests SUCCESS'
             }
-        }*/
+        }
 
         stage('Deploying') {
             steps {
