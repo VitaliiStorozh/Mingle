@@ -33,7 +33,8 @@ pipeline {
             steps {
                 echo 'tes1ts'
                 sh 'dropdb mingle_test; createdb mingle_test'
-                sh 'PATH="$HOME/.rbenv/bin:$PATH"'
+                sh 'PATH="$HOME/.rbenv/shims/bin:$PATH"'
+                sh 'whereis rake'
                 dir('mingle') {
                     //sh 'rbenv global 3.0.1'
                     //sh 'gem install rake'
