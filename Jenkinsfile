@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        /*stage('build & jruby unit tests') {
+        stage('build & jruby unit tests') {
             steps {
                 echo 'build'
                 dir('mingle'){                    
@@ -27,9 +27,9 @@ pipeline {
                 }
                 echo 'Tests SUCCESS'
             }
-        }*/
+        }
 
-	    stage('jruby unit tests') {
+	    /*stage('jruby unit tests') {
             steps {
                 echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
@@ -44,7 +44,7 @@ pipeline {
                 }
                 echo 'Tests SUCCESS'
             }
-        }
+        }*/
 
         stage('Deploying') {
             steps {
