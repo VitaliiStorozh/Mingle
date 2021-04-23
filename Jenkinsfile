@@ -14,12 +14,12 @@ pipeline {
             steps {
                 echo 'build'
                 dir('mingle'){                    
-                    sh 'script/build'
+                    //sh 'script/build'
                     //sh 'java -version'
                     //sh 'ruby -v'
                     //sh 'whereis rake'
                     //sh 'bundle show rake'
-                    sh 'source /root/.bash_profile'
+                    //sh 'source /root/.bash_profile'
                     //sh 'rake --version'
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
