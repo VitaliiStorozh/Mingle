@@ -17,7 +17,7 @@ pipeline {
                     sh 'script/build'
                     sh 'java -version'
                     sh 'ruby -v'
-                    sh 'rake --version'
+                    sh 'whereis rake'
                     sh 'source /root/.bash_profile'
                     sh 'rake --version'
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
