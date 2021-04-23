@@ -17,6 +17,7 @@ pipeline {
                     sh 'script/build'
                     sh 'java -version'
                     sh 'ruby -v'
+                    sh 'source /root/.bashrc'
                     sh 'ruby test/unit/a_b_testing_test.rb'
                 }
                 echo 'Tests SUCCESS'
