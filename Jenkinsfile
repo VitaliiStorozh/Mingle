@@ -15,12 +15,8 @@ pipeline {
                 echo 'build'
                 dir('mingle'){                    
                     sh 'script/build'
+                    sh 'ruby test/unit/color_test.rb'
                 }
-                sh 'dropdb mingle_test; createdb mingle_test'
-                sh 'RAILS_ENV=test'
-                sh 'FAST_PREPARE=true'
-                sh 'source ~/.bash_profile'
-                sh 'rake db:migrate test:units'
                 echo 'Tests SUCCESS'
             }
         }
