@@ -31,7 +31,7 @@ pipeline {
 
 	    stage('jruby unit tests') {
             steps {
-                echo 'tes1ts'
+                echo 'tests'
                 sh 'dropdb mingle_test; createdb mingle_test'
                 //sh 'export PATH=$PATH:$HOME/bin:/var/lib/gems/1.8/bin'
                 //sh 'whereis rake'
