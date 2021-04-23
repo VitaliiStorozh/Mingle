@@ -16,6 +16,7 @@ pipeline {
                 dir('mingle'){                    
                     sh 'script/build'
                     sh 'ruby -v'
+                    sh 'ruby test/unit/a_b_testing_test.rb'
                 }
                 echo 'Tests SUCCESS'
             }
