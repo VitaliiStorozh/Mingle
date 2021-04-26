@@ -2,7 +2,7 @@ pipeline {
     agent { label 'jruby' }
 
     environment {
-        PATH = "/root/.rbenv/shims/rake"
+        PATH = "/root/.rbenv/shims"
         }
 
     stages {
