@@ -42,7 +42,6 @@ pipeline {
                 //sh 'printenv'
                 //sh 'export PATH=$PATH:$HOME/bin:/var/lib/gems/1.8/bin'
                 dir('mingle') {
-                    sh 'rbenv global 3.0.1'
                     sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                     }
                 echo 'Tests SUCCESS'
