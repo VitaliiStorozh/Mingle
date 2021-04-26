@@ -38,6 +38,7 @@ pipeline {
                                 }
                     }
                 echo 'Tests SUCCESS'
+                }
             }
         }
 
