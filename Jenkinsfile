@@ -2,7 +2,7 @@ pipeline {
     agent { label 'jruby' }
 
     environment {
-        PATH = "/root/.bash_profile/bin:$PATH"
+        PATH = "/root/.rbenv/shims/rake"
         }
 
     stages {
@@ -39,7 +39,7 @@ pipeline {
                 sh 'dropdb mingle_test; createdb mingle_test'
                 sh 'pwd'
                 sh 'whereis rake'
-                sh 'printenv'
+                //sh 'printenv'
                 //sh 'export PATH=$PATH:$HOME/bin:/var/lib/gems/1.8/bin'
                 //dir('mingle') {
                     //sh 'rbenv global 3.0.1'
