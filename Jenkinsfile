@@ -14,41 +14,34 @@ pipeline {
             }
         }
 
-        /*stage('build & jruby unit tests') {
+        stage('build & jruby unit tests') {
             steps {
                 echo 'build'
                 dir('mingle'){                    
                     sh 'script/build'
-                    //sh 'java -version'
-                    //sh 'ruby -v'
-                    //sh 'whereis rake'
-                    //sh 'bundle show rake'
-                    //sh 'ENV PATH /root/.rbenv/bin:$PATH'
-                    //sh 'dropdb mingle_test; createdb mingle_test'
-                    //sh 'source /root/.bash_profile'
-                    //sh 'rake --version'
-                    //sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
                 }
                 echo 'Tests SUCCESS'
             }
-        }*/
+        }
 
 	    stage('jruby unit tests') {
             steps {
-                echo 'tests'
+                echo 'Tests started!'
                 sh 'dropdb mingle_test; createdb mingle_test'
-                sh 'pwd'
-                sh 'whereis rake'
-                //sh 'printenv'
-                //sh 'export PATH=$PATH:$HOME/bin:/var/lib/gems/1.8/bin'
                 dir('mingle') {
-                    sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
+                    script {
+                        try {
+                            sh 'RAILS_ENV=test FAST_PREPARE=true rake db:migrate test:units --trace'
+                            } catch(err) {
+                                echo "I have caught an error!"
+                                echo err.getMessage()
+                                }
                     }
                 echo 'Tests SUCCESS'
             }
         }
 
-        /*stage('Deploying') {
+        stage('Deploying') {
             steps {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
@@ -66,6 +59,6 @@ pipeline {
                         ]
                     )
                 }
-            }*/
+            }
     }
 }
