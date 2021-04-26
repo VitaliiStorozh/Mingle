@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         ENV PATH = /root/.rbenv/bin:$PATH
-    }
+        }
 
     stages {
         stage('clone') {
