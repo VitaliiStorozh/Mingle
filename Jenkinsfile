@@ -14,17 +14,17 @@ pipeline {
             }
         }
 
-        stage('build & jruby unit tests') {
+        stage('Build') {
             steps {
                 echo 'build'
                 dir('mingle'){                    
                     sh 'script/build'
                 }
-                echo 'Tests SUCCESS'
+                echo 'Build SUCCESS'
             }
         }
 
-	    stage('jruby unit tests') {
+	    stage('Units and Functionals Tests') {
             steps {
                 echo 'Tests started!'
                 sh 'dropdb mingle_test; createdb mingle_test'
