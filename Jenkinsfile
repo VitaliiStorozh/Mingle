@@ -2,7 +2,7 @@ pipeline {
     agent { label 'jruby' }
 
     environment {
-        PATH = "/root/.rbenv/bin:$PATH"
+        PATH = "/root/.bash_profile/bin:$PATH"
         }
 
     stages {
