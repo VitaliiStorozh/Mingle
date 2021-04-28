@@ -51,7 +51,9 @@ pipeline {
                             configName: "Docker",
                             verbose: true,
                             transfers: [
-                                sshTransfer(execCommand: ''' cd /home/vitalii/docker_projects/
+                                sshTransfer(execCommand: ''' cd /home/vitalii/
+                                    git clone http://10.26.0.168:8081/vitalii/mingle_docker.git
+                                    cd mingle_docker
                                     docker-compose stop
                                     docker rm -f $(docker ps -aq)
                                     docker rmi -f $(docker images -q)
