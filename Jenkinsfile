@@ -26,7 +26,7 @@ pipeline {
 
 	    stage('Units and Functionals Tests') {
             steps {
-                echo 'Tests started!'
+                echo 'Tests Started!'
                 sh 'dropdb mingle_test; createdb mingle_test'
                 dir('mingle') {
                     script {
