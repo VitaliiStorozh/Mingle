@@ -8,8 +8,8 @@
   end
   puts "load database.yml from #{f}"
   template = ERB.new(File.read(f))
-  user = ENV["POSTGRES_USER"]
-  password = ENV["POSTGRES_PASSWORD"]
-  host = ENV["POSTGRES_HOST"]
+  user = ENV["db_user"]
+  password = ENV["db_password"]
+  host = ENV["db_endpoint"]
   template.result(binding)
 %>
